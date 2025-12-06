@@ -1,7 +1,10 @@
+import 'package:firebase_latihan/firebase_options.dart';
 import 'package:firebase_latihan/screen/my_login.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+ main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
 

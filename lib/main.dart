@@ -1,3 +1,4 @@
+import 'package:firebase_latihan/screen/my_login.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Firebase Latihan",
       debugShowCheckedModeBanner: false,
-      
+      home: MyLogin(),
     );
   }
 }

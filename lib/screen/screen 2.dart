@@ -1,3 +1,4 @@
+import 'package:firebase_latihan/screen/screen%203.dart';
 import 'package:flutter/material.dart';
 
 class MySplashScreen2 extends StatelessWidget {
@@ -77,10 +78,7 @@ class MySplashScreen2 extends StatelessWidget {
             Text(
               "Selamat datang orang kuning\n disini zona kuning",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.yellow,
-              ),
+              style: TextStyle(fontSize: 14.0, color: Colors.yellow),
             ),
             SizedBox(height: 20),
             Row(
@@ -115,28 +113,28 @@ class MySplashScreen2 extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            // Container(
-            //   margin: EdgeInsets.only(left: 40, right: 40),
-            //   child: SizedBox(
-            //     height: 25,
-            //     width: double.infinity,
-            //     child: ElevatedButton(onPressed: (){
-
-            //       Navigator.push(context,
-            //       MaterialPageRoute(builder: (context) => SplashScreen2()));
-            //     },
-            //     style: ElevatedButton.styleFrom(
-            //       backgroundColor: Colors.green,
-            //     ),
-            //     child: Text("Continue",
-            //     style: TextStyle(
-            //     fontSize: 12,
-            //     color: Colors.white,
-            //   ),
-            //   ),
-            //   ),
-            //   ),
-            // ),
+            Container(
+              margin: EdgeInsets.only(left: 40, right: 40),
+              child: SizedBox(
+                height: 25,
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MySplashScreen3()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow,
+                  ),
+                  child: Text(
+                    "Continue",
+                    style: TextStyle(fontSize: 12, color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
             SizedBox(height: 30),
           ],
         ),

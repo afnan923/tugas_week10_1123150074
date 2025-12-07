@@ -1,3 +1,4 @@
+import 'package:firebase_latihan/screen/my_login.dart';
 import 'package:flutter/material.dart';
 
 class MySplashScreen3 extends StatelessWidget {
@@ -52,7 +53,7 @@ class MySplashScreen3 extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.red,
+                    color: Colors.red[100]!,
                   ),
                 ),
                 Text(
@@ -68,19 +69,16 @@ class MySplashScreen3 extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green[100]!,
+                    color: Colors.green,
                   ),
                 ),
               ],
             ),
             SizedBox(height: 2),
             Text(
-              "Selamat datang orang merah\n disini zona merah",
+              "Selamat datang orang hijau\n disini zona hijau dan kamu akan terbang",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: const Color.fromARGB(255, 255, 0, 0),
-              ),
+              style: TextStyle(fontSize: 14.0, color: Colors.green),
             ),
             SizedBox(height: 20),
             Row(
@@ -90,7 +88,7 @@ class MySplashScreen3 extends StatelessWidget {
                   height: 10,
                   width: 10,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 0, 0),
+                    color: Colors.red[100]!,
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -108,35 +106,35 @@ class MySplashScreen3 extends StatelessWidget {
                   height: 10,
                   width: 10,
                   decoration: BoxDecoration(
-                    color: Colors.green[100]!,
+                    color: Colors.green,
                     shape: BoxShape.circle,
                   ),
                 ),
               ],
             ),
             SizedBox(height: 20),
-            // Container(
-            //   margin: EdgeInsets.only(left: 40, right: 40),
-            //   child: SizedBox(
-            //     height: 25,
-            //     width: double.infinity,
-            //     child: ElevatedButton(onPressed: (){
-
-            //       Navigator.push(context,
-            //       MaterialPageRoute(builder: (context) => SplashScreen2()));
-            //     },
-            //     style: ElevatedButton.styleFrom(
-            //       backgroundColor: Colors.green,
-            //     ),
-            //     child: Text("Continue",
-            //     style: TextStyle(
-            //     fontSize: 12,
-            //     color: Colors.white,
-            //   ),
-            //   ),
-            //   ),
-            //   ),
-            // ),
+            Container(
+              margin: EdgeInsets.only(left: 40, right: 40),
+              child: SizedBox(
+                height: 25,
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyLogin()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                  ),
+                  child: Text(
+                    "Continue",
+                    style: TextStyle(fontSize: 12, color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
             SizedBox(height: 30),
           ],
         ),

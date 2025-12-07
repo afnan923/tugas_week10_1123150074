@@ -63,34 +63,94 @@ class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Login Page"),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              controller: emailCtrl,
-              decoration: const InputDecoration(labelText: 'Email'),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              SizedBox(height: 20),
+            Stack(
+              children: [
+                Container(
+                  width: 200,
+                  height: 200,
+                  decoration: const BoxDecoration(
+                    color: Colors.red,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 50),
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 100),
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
-            TextField(
-              controller: passCtrl,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
+              SizedBox(height: 8,),
+              Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "WEL",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                  ),
+                ),
+                Text(
+                  "CO",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellow,
+                  ),
+                ),
+                Text(
+                  "ME",
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                ),
+              ],
             ),
-
-            const SizedBox(height: 16,),
-            if (_error != null) ...[
-              Text(_error!, style: const TextStyle(color: Colors.red)),
+              SizedBox(height: 8,),
+              TextField(
+                controller: emailCtrl,
+                decoration: const InputDecoration(labelText: 'Email'),
+              ),
               const SizedBox(height: 8),
+              TextField(
+                controller: passCtrl,
+                decoration: const InputDecoration(labelText: 'Password'),
+                obscureText: true,
+              ),
+        
+              const SizedBox(height: 16,),
+              if (_error != null) ...[
+                Text(_error!, style: const TextStyle(color: Colors.red)),
+                const SizedBox(height: 8),
+              ],
+              ElevatedButton(onPressed: _isLoading ? null :_login,
+              child: _isLoading ? const CircularProgressIndicator() : const Text('Login'),
+              ),
             ],
-            ElevatedButton(onPressed: _isLoading ? null :_login,
-            child: _isLoading ? const CircularProgressIndicator() : const Text('Login'),
-            ),
-          ],
+          ),
         ),
       ),
     );

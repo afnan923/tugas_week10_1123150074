@@ -146,7 +146,7 @@ class _MyLoginState extends State<MyLogin> {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: Colors.yellow.shade700,
+                        color: Colors.red.shade700,
                         width: 2,
                       ),
                     ),
@@ -166,12 +166,12 @@ class _MyLoginState extends State<MyLogin> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.blue),
+                      borderSide: const BorderSide(color: Colors.yellow),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide(
-                        color: Colors.blue.shade700,
+                        color: Colors.yellow.shade700,
                         width: 2,
                       ),
                     ),
@@ -183,12 +183,25 @@ class _MyLoginState extends State<MyLogin> {
                 Text(_error!, style: const TextStyle(color: Colors.red)),
                 const SizedBox(height: 8),
               ],
-              ElevatedButton(
-                onPressed: _isLoading ? null : _login,
-                child: _isLoading
-                    ? const CircularProgressIndicator()
-                    : const Text('Login'),
-              ),
+              Container(
+                  margin: EdgeInsets.only(left: 40, right: 40),
+                  child: SizedBox(
+                    height: 25,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _isLoading ? null : _login,
+                      
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                      ),
+                      child: Text(
+                        "Loginin Ajee BRAYYYYY",
+                        style: TextStyle(fontSize: 12, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+              
             ],
           ),
         ),

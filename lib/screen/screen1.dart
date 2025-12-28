@@ -1,8 +1,14 @@
 import 'package:firebase_latihan/screen/screen%202.dart';
+import 'package:firebase_latihan/viewmodel/prediction_view_model.dart';
 import 'package:flutter/material.dart';
 
 class MySplashScreen extends StatelessWidget {
-  const MySplashScreen({super.key});
+  final PredictionViewModel viewModel; 
+
+  const MySplashScreen({
+    super.key,
+    required this.viewModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +131,7 @@ class MySplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MySplashScreen2()),
+                      MaterialPageRoute(builder: (context) => MySplashScreen2(viewModel: viewModel,)),
                     );
                   },
                   style: ElevatedButton.styleFrom(

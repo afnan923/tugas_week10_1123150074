@@ -1,8 +1,14 @@
+import 'package:firebase_latihan/viewmodel/prediction_form_page.dart';
+import 'package:firebase_latihan/viewmodel/prediction_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MyLogin extends StatefulWidget {
-  const MyLogin({super.key});
+  final PredictionViewModel viewModel;
+    const MyLogin({
+    super.key,
+    required this.viewModel,
+  });
 
   @override
   State<MyLogin> createState() => _MyLoginState();
@@ -38,7 +44,17 @@ class _MyLoginState extends State<MyLogin> {
           content: Text('UID: ${user?.uid}\nEmail: ${user?.email}'),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+  Navigator.of(context, rootNavigator: true).pushReplacement(
+    MaterialPageRoute(
+      builder: (_) => PredictionFormPage(
+        viewModel: widget.viewModel,
+      ),
+    ),
+  );
+},
+
+
               child: const Text('OK'),
             ),
           ],
@@ -129,54 +145,54 @@ class _MyLoginState extends State<MyLogin> {
                 ],
               ),
               const SizedBox(height: 10),
-                TextField(
-                  controller: emailCtrl,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: "Email",
-                    hintText: "Masukan Email Anda",
-                    prefixIcon: const Icon(Icons.email_outlined),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.red),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
-                        color: Colors.red.shade700,
-                        width: 2,
-                      ),
+              TextField(
+                controller: emailCtrl,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  hintText: "Masukan Email Anda",
+                  prefixIcon: const Icon(Icons.email_outlined),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: Colors.red),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(
+                      color: Colors.red.shade700,
+                      width: 2,
                     ),
                   ),
                 ),
+              ),
               const SizedBox(height: 8),
-               TextField(
+              TextField(
                 controller: passCtrl,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    hintText: "Masukan Password",
-                    prefixIcon: const Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.visibility_outlined),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.yellow),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
-                        color: Colors.yellow.shade700,
-                        width: 2,
-                      ),
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  hintText: "Masukan Password",
+                  prefixIcon: const Icon(Icons.lock),
+                  suffixIcon: Icon(Icons.visibility_outlined),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: Colors.yellow),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(
+                      color: Colors.yellow.shade700,
+                      width: 2,
                     ),
                   ),
                 ),
+              ),
 
               const SizedBox(height: 16),
               if (_error != null) ...[
@@ -184,24 +200,23 @@ class _MyLoginState extends State<MyLogin> {
                 const SizedBox(height: 8),
               ],
               Container(
-                  margin: EdgeInsets.only(left: 40, right: 40),
-                  child: SizedBox(
-                    height: 25,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: _isLoading ? null : _login,
-                      
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                      ),
-                      child: Text(
-                        "Loginin Ajee BRAYYYYY",
-                        style: TextStyle(fontSize: 12, color: Colors.white),
-                      ),
+                margin: EdgeInsets.only(left: 40, right: 40),
+                child: SizedBox(
+                  height: 25,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null : _login,
+
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                    ),
+                    child: Text(
+                      "Loginin Ajee BRAYYYYY",
+                      style: TextStyle(fontSize: 12, color: Colors.white),
                     ),
                   ),
                 ),
-              
+              ),
             ],
           ),
         ),
